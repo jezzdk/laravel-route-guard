@@ -4,8 +4,9 @@ use Jezzdk\Laravel\LaravelRouteGuardServiceProvider;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Routing\Router;
 use Mockery\Mock;
+use PHPUnit\Framework\TestCase;
 
-class LaravelRouteGuardServiceProviderTest extends \PHPUnit_Framework_TestCase
+class LaravelRouteGuardServiceProviderTest extends TestCase
 {
     /**
      * @var Array
@@ -17,7 +18,7 @@ class LaravelRouteGuardServiceProviderTest extends \PHPUnit_Framework_TestCase
      */
     protected $service_provider;
 
-    protected function setUp()
+    protected function setUp(): void
     {
         $this->setUpMocks();
 
@@ -56,6 +57,8 @@ class LaravelRouteGuardServiceProviderTest extends \PHPUnit_Framework_TestCase
      */
     public function it_performs_a_boot_method()
     {
-        $this->service_provider->boot();
+        $null = $this->service_provider->boot();
+
+        $this->assertNull($null);
     }
 }
